@@ -1,6 +1,7 @@
 <template>
   <div>
     <header class="headerbox">
+
      <div class="headerMain">
        <div class="headerTop">
        <div class="leftInfo">
@@ -38,7 +39,7 @@
      </div>
     </header>
     <div class="main">
-      <imageCarousel/>
+      <imageCarousel v-if="maincarousel.data" :value="maincarousel.data[1]"/>
       <div v-if="mainData.datas">
         <div class="columnnavdiv">
           <ul>
@@ -57,78 +58,39 @@
         </div>
       </div>
       <div>
-        <div class="surprise_day">
+        <div class="surprise_day" v-if="maincarousel.data">
             <div class="surprise">
               <div class="surprise-tit">
                 <div class="titimg">
-                  <img src="https://static.epetbar.com/static_wap/appmall/main/new_index_icon_suprice.png?version=03" alt="">
+                  <img :src="maincarousel.data[3].surprise_icon.image" alt="">
                 </div>
-                <div class="nexttip">下一场开始</div>
+                <div class="nexttip">{{maincarousel.data[3].title}}</div>
                 <div class="time">
                   <div class="timeWrap">
-                    <span>20</span>
-                    <span>:</span>
-                    <span>00</span>
+                    <span>{{maincarousel.data[3].right_image.target.param.tid}}</span>
+                    <!--<span>:</span>-->
+                    <!--<span>00</span>-->
                   </div>
                 </div>
                 <div class="more">
                   <a href="">
-                    <img src="https://img2.epetbar.com/nowater/2018-02/02/12/80acfffe2d91b341fd2c8de903b3eace.png" alt="">
+                    <img :src="maincarousel.data[3].right_image.image" alt="">
                   </a>
                 </div>
               </div>
               <div class="surprise-pro">
                 <div class="swiper-container surpriseSwiper">
                   <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" v-for="(cd , index) in maincarousel.data[3].goods">
                       <div class="pro-block">
                         <a href="">
                           <div class="imgWrap">
-                            <img src="https://img1.epetbar.com/2017-01/17/18/7dd229ee03e407cdeb9a72f502c68a6c.jpg?x-oss-process=style/fill&$1=300&$2=300" alt="">
+                            <img :src="cd.image.image" alt="">
                           </div>
                           <div class="cred">
-                            <span>￥57.00</span>
+                            <span>￥{{cd.sale_price}}</span>
                           </div>
-                          <p>省38.00</p>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <div class="pro-block">
-                        <a href="">
-                          <div class="imgWrap">
-                            <img src="https://img1.epetbar.com/2017-01/17/18/7dd229ee03e407cdeb9a72f502c68a6c.jpg?x-oss-process=style/fill&$1=300&$2=300" alt="">
-                          </div>
-                          <div class="cred">
-                            <span>￥57.00</span>
-                          </div>
-                          <p>省38.00</p>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <div class="pro-block">
-                        <a href="">
-                          <div class="imgWrap">
-                            <img src="https://img1.epetbar.com/2017-01/17/18/7dd229ee03e407cdeb9a72f502c68a6c.jpg?x-oss-process=style/fill&$1=300&$2=300" alt="">
-                          </div>
-                          <div class="cred">
-                            <span>￥57.00</span>
-                          </div>
-                          <p>省38.00</p>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <div class="pro-block">
-                        <a href="">
-                          <div class="imgWrap">
-                            <img src="https://img1.epetbar.com/2017-01/17/18/7dd229ee03e407cdeb9a72f502c68a6c.jpg?x-oss-process=style/fill&$1=300&$2=300" alt="">
-                          </div>
-                          <div class="cred">
-                            <span>￥57.00</span>
-                          </div>
-                          <p>省38.00</p>
+                          <p>{{cd.little_price}}</p>
                         </a>
                       </div>
                     </div>
@@ -176,23 +138,13 @@
         <PageLine/>
       </div>
       <div>
-          <div class="divboximg">
-            <div class="divboximg_left" >
-              <a href="">
-                <img src="https://img2.epetbar.com/nowater/2018-02/05/14/4c32811744e04f6b63632b42a0d5325d.jpg@!water" alt="">
-              </a>
-              <a href="">
-                <img src="https://img2.epetbar.com/nowater/2018-02/05/14/fa66a0c8437b6fb8137c58d9b6ccb1c6.jpg@!water" alt="">
+          <div class="divboximg" v-if="maincarousel.data">
+            <div class="divboximg_all" v-for="(ads,index) in maincarousel.data[3110].content_images" :key="index">
+              <a href="" v-for="(ad,index) in ads" :key="index">
+                <img :src="ad.image" alt="">
               </a>
             </div>
-            <div class="divboximg_right">
-              <a href="">
-                <img src="https://img2.epetbar.com/nowater/2018-02/05/14/9aa462284ec8a79694fa5c9ce062d5ab.jpg@!water" alt="">
-              </a>
-              <a href="">
-                <img src="https://img2.epetbar.com/nowater/2018-02/05/14/6e3a2cb186e1028d481940c42fb54732.jpg@!water" alt="">
-              </a>
-            </div>
+
           </div>
         </div>
       <div>
@@ -308,26 +260,21 @@ import CustomTite from '../../components/CustomTite/CustomTite.vue'
 import Fashion from '../../components/Fashion/Fashion.vue'
 import {mapState} from 'vuex'
 export default {
+  data(){
+    return{
+      ishow:show,
+      dataIndex:0
+    }
+  },
   mounted(){
     this.$store.dispatch('getMainData')
+    this.$store.dispatch('getMainCarousel')
     new BScroll('.proceedVessel',{
       scrollX: true
     })
-//    new Swiper('.bannerSwiper',{
-//      autoplay:true,
-//      loop : true,
-//      pagination: { // 指定分页器容器
-//        el: '.swiper-pagination'
-//      }
-//    })
-
-    new Swiper('.surpriseSwiper',{
-      slidesPerView : 3.5,
-      spaceBetween : 10,
-    })
   },
   computed:{
-    ...mapState(['mainData'])
+    ...mapState(['mainData','maincarousel'])
   },
   components:{
     PageLine,
@@ -347,7 +294,16 @@ export default {
           }
         })
       })
+    },
+    maincarousel(){
+      this.$nextTick(()=>{
+        new Swiper('.surpriseSwiper',{
+          slidesPerView : 3.5,
+          spaceBetween : 10,
+        })
+      })
     }
+
   }
 
 }
@@ -599,7 +555,7 @@ export default {
         width 100%
         height 200px
         clearFix()
-        .divboximg_left
+        .divboximg_all
           width 50%
           height 100%
           float left
@@ -607,14 +563,14 @@ export default {
             img
               width 100%
               height 50%
-        .divboximg_right
-          width 50%
-          height 100%
-          float left
-          a
-            img
-              width 100%
-              height 50%
+        /*.divboximg_right*/
+          /*width 50%*/
+          /*height 100%*/
+          /*float left*/
+          /*a*/
+            /*img*/
+              /*width 100%*/
+              /*height 50%*/
 
       .smallCarousel
 
