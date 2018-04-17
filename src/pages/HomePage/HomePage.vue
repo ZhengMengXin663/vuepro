@@ -24,161 +24,36 @@
        <div class="proceedVessel">
           <div class="find_nav_list">
             <ul class="menu-wrapper">
-              <li class="on">
+              <li v-for="(menu,index) in mainData.menus" :key="index" >
               <a href="">
                   <span>
-                    <span>首页</span>
+                    <span>{{menu.menu_name}}</span>
                     <i></i>
                   </span>
               </a>
             </li>
-              <li>
-                <a href="">
-                  <span>
-                    <span>狗狗主粮</span>
-                    <i></i>
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <span>
-                    <span>零食</span>
-                    <i></i>
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <span>
-                    <span>玩具</span>
-                    <i></i>
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <span>
-                    <span>外出</span>
-                    <i></i>
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <span>
-                    <span>服饰城</span>
-                    <i></i>
-                  </span>
-                </a>
-              </li>
             </ul>
           </div>
        </div>
      </div>
     </header>
     <div class="main">
-      <div>
-        <div class="swiper-container bannerSwiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <a href="">
-                  <img src="https://img2.epetbar.com/nowater/2018-04/09/18/6a92c91bf6172f6c004debe5033e716e.jpg@!water" alt="">
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="">
-                  <img src="https://img2.epetbar.com/nowater/2018-04/11/21/8136c3a9e8ffcbfe1ace7ed761201173.jpg@!water" alt="">
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="">
-                  <img src="https://img2.epetbar.com/nowater/2018-04/16/13/b3a4a0c7a728aa7ef7537388abd6b4fb.jpg@!water" alt="">
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="">
-                  <img src="https://img2.epetbar.com/nowater/2018-04/16/14/90471637375c21c11d67313793bca97c.jpg@!water" alt="">
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="">
-                  <img src="https://img2.epetbar.com/nowater/2018-04/15/22/3f9a93b4cde5555cbca5f9e05d7dfad7.jpg@!water" alt="">
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="">
-                  <img src="https://img2.epetbar.com/nowater/2018-04/16/10/57af2370b7e9f5167fa1373fa665d4c6.jpg@!water" alt="">
-                </a>
-              </div>
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
-      </div>
-      <div>
+      <imageCarousel/>
+      <div v-if="mainData.datas">
         <div class="columnnavdiv">
           <ul>
-            <li>
+            <li v-for="(menu,index) in mainData.datas[1].menus" :key="index">
               <a href="javascript:;">
-                <img src="https://img1.epetbar.com/2018-03/28/16/148a8a0c14d85ee6b0229770385d8f9f.jpg@!water" alt="">
+                <img :src="menu.image" alt="">
               </a>
             </li>
-            <li>
-              <a href="javascript:;">
-                <img src="https://img1.epetbar.com/2018-03/28/16/148a8a0c14d85ee6b0229770385d8f9f.jpg@!water" alt="">
-              </a>
-            </li>
-            <li>
-              <a href="javascript:;">
-                <img src="https://img1.epetbar.com/2018-03/28/16/148a8a0c14d85ee6b0229770385d8f9f.jpg@!water" alt="">
-              </a>
-            </li>
-            <li>
-              <a href="javascript:;">
-                <img src="https://img1.epetbar.com/2018-03/28/16/148a8a0c14d85ee6b0229770385d8f9f.jpg@!water" alt="">
-              </a>
-            </li>
-            <li>
-              <a href="javascript:;">
-                <img src="https://img1.epetbar.com/2018-03/28/16/148a8a0c14d85ee6b0229770385d8f9f.jpg@!water" alt="">
-              </a>
-            </li>
-            <li>
-            <a href="javascript:;">
-              <img src="https://img1.epetbar.com/2018-03/28/16/148a8a0c14d85ee6b0229770385d8f9f.jpg@!water" alt="">
-            </a>
-          </li>
-            <li>
-              <a href="javascript:;">
-                <img src="https://img1.epetbar.com/2018-03/28/16/148a8a0c14d85ee6b0229770385d8f9f.jpg@!water" alt="">
-              </a>
-            </li>
-            <li>
-              <a href="javascript:;">
-                <img src="https://img1.epetbar.com/2018-03/28/16/148a8a0c14d85ee6b0229770385d8f9f.jpg@!water" alt="">
-              </a>
-            </li>
-            <li>
-              <a href="javascript:;">
-                <img src="https://img1.epetbar.com/2018-03/28/16/148a8a0c14d85ee6b0229770385d8f9f.jpg@!water" alt="">
-              </a>
-            </li>
-            <li>
-              <a href="javascript:;">
-                <img src="https://img1.epetbar.com/2018-03/28/16/148a8a0c14d85ee6b0229770385d8f9f.jpg@!water" alt="">
-              </a>
-            </li>
-
           </ul>
         </div>
       </div>
       <div>
         <div class="banner_item">
-          <div class="swiper-wrapper">
-            <a href="javascript:;">
-              <img src="https://img2.epetbar.com/nowater/2017-12/18/09/60c354a5d94be9fd114523ee77259c73.gif" alt="">
-            </a>
-          </div>
+          <a href="">
+            <img src="https://img2.epetbar.com/nowater/2017-12/18/09/60c354a5d94be9fd114523ee77259c73.gif" alt="">          </a>
         </div>
       </div>
       <div>
@@ -267,74 +142,42 @@
         <PageLine/>
       </div>
       <div>
-        <div class="currency_ad">
+        <div class="currency_ad" v-if="mainData.datas">
           <div class="currency_ad_l">
             <a href="">
-              <img src="https://img2.epetbar.com/nowater/2017-12/13/09/1ec9379f83eb421db9a09195c9594e29.jpg@!water" alt="">
+              <img :src="mainData.datas[5].content_images[0][0].image" alt="">
             </a>
           </div>
           <div class="currency_ad_r">
-            <a href="">
-              <img src="https://img2.epetbar.com/nowater/2017-12/13/10/35bb7f3bd146cb9a9e74a935803f0d9a.jpg@!water" alt="">
+            <a href="" v-for="(a,index) in mainData.datas[5].content_images[1]" :key="index">
+              <img :src="a.image" alt="">
             </a>
-            <a href="">
-              <img src="https://img2.epetbar.com/nowater/2018-04/03/09/06273e732679cfcf9e4a5e98d1cc0e8c.jpg@!water" alt="">
-            </a>
+            <!--<a href="">-->
+              <!--<img src="https://img2.epetbar.com/nowater/2018-04/03/09/06273e732679cfcf9e4a5e98d1cc0e8c.jpg@!water" alt="">-->
+            <!--</a>-->
           </div>
         </div>
       </div>
       <div>
         <PageLine/>
       </div>
-      <div>
-        <div class="banner_item">
+      <div v-if="mainData.datas">
+        <div class="banner_item" >
           <a href="">
-            <img src="https://img2.epetbar.com/nowater/2018-04/09/09/cb1638292b794ab005e83f38e6c2d7bf.jpg@!water" alt="">
-          </a>
+            <img :src="mainData.datas[7].value[0].image" alt="">          </a>
         </div>
       </div>
       <div>
         <PageLine/>
       </div>
-      <div>
-        <div class="custom_tite">
-          <div class="leftimg">
-            <img src="https://img2.epetbar.com/nowater/2017-12/20/15/38688d8d92c7da7aae64eda8b8bb3a94.jpg" alt="">
-          </div>
-          <div class="more">
-            <a href="">
-              <img src="https://img2.epetbar.com/nowater/2017-12/20/15/0855ecf27a6ca47b32170caab2503ddd.jpg" alt="">
-            </a>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="fashion">
-          <div class="fashionImg">
-            <a href="">
-              <img src="https://img1.epetbar.com/2018-04/15/22/822b52d6f9a909d5e427efe9cef5a91e.jpg?x-oss-process=style/waterfall&$1=500" alt="">
-              <span class="palyButton"></span>
-            </a>
-          </div>
-          <div class="fashionInfo">
-            <div class="fashionInfoText">SodaPup 易拉罐漏食狗玩具 口感软弹洁牙护牙</div>
-            <div class="fashionInfoStar">
-              <span class="eyes">
-                <img src="https://static.epetbar.com/static_web/wap/dist/images/background/view-black.png" alt="">
-              </span>
-              <i>9274</i>
-              <span>丨</span>
-              <i>01:29</i>
-            </div>
-          </div>
-        </div>
-      </div>
+      <CustomTite v-if="mainData.datas" :vlaueData="mainData.datas[9]"/>
+      <Fashion v-if="mainData.datas" :vlaueData="mainData.datas[10]"/>
       <div>
         <PageLine/>
       </div>
       <div>
           <div class="divboximg">
-            <div class="divboximg_left">
+            <div class="divboximg_left" >
               <a href="">
                 <img src="https://img2.epetbar.com/nowater/2018-02/05/14/4c32811744e04f6b63632b42a0d5325d.jpg@!water" alt="">
               </a>
@@ -356,165 +199,65 @@
         <PageLine/>
       </div>
       <div>
-        <div class="custom_tite">
-          <div class="leftimg">
-            <img src="https://img2.epetbar.com/nowater/2017-12/13/13/11acf905ca327ed7aae8f9b4851850a0.jpg" alt="">
-          </div>
-          <div class="more">
-            <a href="">
-              <img src="https://img2.epetbar.com/nowater/2017-12/20/15/0855ecf27a6ca47b32170caab2503ddd.jpg" alt="">
-            </a>
-          </div>
-        </div>
+        <CustomTite v-if="mainData.datas" :vlaueData="mainData.datas[14]"/>
       </div>
-      <div>
-        <div class="banner_item">
-          <a href="">
-            <img src="https://img2.epetbar.com/nowater/2018-04/09/09/cb1638292b794ab005e83f38e6c2d7bf.jpg@!water" alt="">
-          </a>
-        </div>
-      </div>
+
+        <BannerItem v-if="mainData.datas" :vlaueData="mainData.datas[15]"/>
       <div>
         <PageLine/>
       </div>
-      <div>
-        <div class="banner_item">
-          <a href="">
-            <img src="https://img2.epetbar.com/nowater/2018-04/09/09/cb1638292b794ab005e83f38e6c2d7bf.jpg@!water" alt="">
-          </a>
-        </div>
-      </div>
+      <BannerItem v-if="mainData.datas" :vlaueData="mainData.datas[17]"/>
       <div>
         <PageLine/>
       </div>
-      <div>
-        <div class="banner_item">
-          <a href="">
-            <img src="https://img2.epetbar.com/nowater/2018-04/09/09/cb1638292b794ab005e83f38e6c2d7bf.jpg@!water" alt="">
-          </a>
-        </div>
-      </div>
+      <BannerItem v-if="mainData.datas" :vlaueData="mainData.datas[19]"/>
       <div>
         <PageLine/>
       </div>
-      <div>
-        <div class="banner_item">
-          <a href="">
-            <img src="https://img2.epetbar.com/nowater/2018-04/09/09/cb1638292b794ab005e83f38e6c2d7bf.jpg@!water" alt="">
-          </a>
-        </div>
-      </div>
+      <BannerItem v-if="mainData.datas" :vlaueData="mainData.datas[21]"/>
       <div>
         <PageLine/>
       </div>
-      <div>
-        <div class="banner_item">
-          <a href="">
-            <img src="https://img2.epetbar.com/nowater/2018-04/09/09/cb1638292b794ab005e83f38e6c2d7bf.jpg@!water" alt="">
-          </a>
-        </div>
-      </div>
+      <BannerItem v-if="mainData.datas" :vlaueData="mainData.datas[23]"/>
       <div>
         <PageLine/>
       </div>
-      <div>
-        <div class="banner_item">
-          <a href="">
-            <img src="https://img2.epetbar.com/nowater/2018-04/09/09/cb1638292b794ab005e83f38e6c2d7bf.jpg@!water" alt="">
-          </a>
-        </div>
-      </div>
+      <BannerItem v-if="mainData.datas" :vlaueData="mainData.datas[25]"/>
       <div>
         <PageLine/>
       </div>
-      <div>
-        <div class="banner_item">
-          <a href="">
-            <img src="https://img2.epetbar.com/nowater/2018-04/09/09/cb1638292b794ab005e83f38e6c2d7bf.jpg@!water" alt="">
-          </a>
-        </div>
-      </div>
+      <BannerItem v-if="mainData.datas" :vlaueData="mainData.datas[27]"/>
       <div>
         <PageLine/>
       </div>
-      <div>
-        <div class="banner_item">
-          <a href="">
-            <img src="https://img2.epetbar.com/nowater/2018-04/09/09/cb1638292b794ab005e83f38e6c2d7bf.jpg@!water" alt="">
-          </a>
-        </div>
-      </div>
+      <BannerItem v-if="mainData.datas" :vlaueData="mainData.datas[29]"/>
       <div>
         <PageLine/>
       </div>
-      <div>
-        <div class="banner_item">
-          <a href="">
-            <img src="https://img2.epetbar.com/nowater/2018-04/09/09/cb1638292b794ab005e83f38e6c2d7bf.jpg@!water" alt="">
-          </a>
-        </div>
-      </div>
+      <BannerItem v-if="mainData.datas" :vlaueData="mainData.datas[31]"/>
       <div>
         <PageLine/>
       </div>
-      <div>
-        <div class="banner_item">
-          <a href="">
-            <img src="https://img2.epetbar.com/nowater/2018-04/09/09/cb1638292b794ab005e83f38e6c2d7bf.jpg@!water" alt="">
-          </a>
-        </div>
-      </div>
-      <div>
-        <PageLine/>
-      </div><div>
-      <div class="banner_item">
-        <a href="">
-          <img src="https://img2.epetbar.com/nowater/2018-04/09/09/cb1638292b794ab005e83f38e6c2d7bf.jpg@!water" alt="">
-        </a>
-      </div>
-    </div>
+      <BannerItem v-if="mainData.datas" :vlaueData="mainData.datas[33]"/>
       <div>
         <PageLine/>
       </div>
-      <div>
-        <div class="banner_item">
-          <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-04/09/09/cb1638292b794ab005e83f38e6c2d7bf.jpg@!water" alt="">
-          </a>
-        </div>
-      </div>
+      <BannerItem v-if="mainData.datas" :vlaueData="mainData.datas[35]"/>
       <div>
         <PageLine/>
       </div>
+      <BannerItem v-if="mainData.datas" :vlaueData="mainData.datas[37]"/>
       <div>
-        <div class="custom_tite">
-          <div class="leftimg">
-            <img src="https://img2.epetbar.com/nowater/2018-02/07/10/79d53b0ab1c8a630802d74b5beb0a632.jpg" alt="">
-          </div>
-          <div class="more">
-            <a href="">
-              <img src="https://img2.epetbar.com/nowater/2017-12/20/15/0855ecf27a6ca47b32170caab2503ddd.jpg" alt="">
-            </a>
-          </div>
-        </div>
+        <PageLine/>
       </div>
+      <CustomTite v-if="mainData.datas" :vlaueData="mainData.datas[43]"/>
       <div>
-        <div class="smallCarousel">
+        <div class="smallCarousel" v-if="mainData.datas">
           <div class="small-swiper-container">
             <div class="swiper-wrapper">
-              <div class="swiper-slide">
+              <div class="swiper-slide" v-for="(menu,index) in mainData.datas[44].value" :key="index">
                 <a href="">
-                  <img src="https://img2.epetbar.com/nowater/2018-04/13/10/3cb5704493b322cc0eae6ab49642e911.jpg@!water" alt="">
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="">
-                  <img src="https://img2.epetbar.com/nowater/2018-04/13/10/4f2787312a3d212bc65c062627eaa429.jpg@!water" alt="">
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="">
-                  <img src="https://img2.epetbar.com/nowater/2018-04/13/10/4f2787312a3d212bc65c062627eaa429.jpg@!water" alt="">
+                  <img :src="menu.image" alt="">
                 </a>
               </div>
             </div>
@@ -525,86 +268,17 @@
       <div>
         <PageLine/>
       </div>
-      <div>
-        <div class="custom_tite">
-          <div class="leftimg">
-            <img src="https://img2.epetbar.com/nowater/2018-02/07/10/79d53b0ab1c8a630802d74b5beb0a632.jpg" alt="">
-          </div>
-          <div class="more">
-            <a href="">
-              <img src="https://img2.epetbar.com/nowater/2017-12/20/15/0855ecf27a6ca47b32170caab2503ddd.jpg" alt="">
-            </a>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="fashion">
-          <div class="fashionImg">
-            <a href="">
-              <img src="https://img1.epetbar.com/2018-04/15/22/822b52d6f9a909d5e427efe9cef5a91e.jpg?x-oss-process=style/waterfall&$1=500" alt="">
-              <span class="palyButton"></span>
-            </a>
-          </div>
-          <div class="fashionInfo">
-            <div class="fashionInfoText">SodaPup 易拉罐漏食狗玩具 口感软弹洁牙护牙</div>
-            <div class="fashionInfoStar">
-              <span class="eyes">
-                <img src="https://static.epetbar.com/static_web/wap/dist/images/background/view-black.png" alt="">
-              </span>
-              <i>9274</i>
-              <span>丨</span>
-              <i>01:29</i>
-            </div>
-          </div>
-        </div>
-      </div>
+      <CustomTite v-if="mainData.datas" :vlaueData="mainData.datas[46]"/>
+      <Fashion v-if="mainData.datas" :vlaueData="mainData.datas[47]"/>
       <div>
         <PageLine/>
       </div>
-      <div>
-        <div class="custom_tite">
-          <div class="leftimg">
-            <img src="https://img2.epetbar.com/nowater/2018-02/07/10/79d53b0ab1c8a630802d74b5beb0a632.jpg" alt="">
-          </div>
-          <div class="more">
-            <a href="">
-              <img src="https://img2.epetbar.com/nowater/2017-12/20/15/0855ecf27a6ca47b32170caab2503ddd.jpg" alt="">
-            </a>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="fashion">
-          <div class="fashionImg">
-            <a href="">
-              <img src="https://img1.epetbar.com/2018-04/15/22/822b52d6f9a909d5e427efe9cef5a91e.jpg?x-oss-process=style/waterfall&$1=500" alt="">
-              <span class="palyButton"></span>
-            </a>
-          </div>
-          <div class="fashionInfo">
-            <div class="fashionInfoText">SodaPup 易拉罐漏食狗玩具 口感软弹洁牙护牙</div>
-            <div class="fashionInfoStar">
-              <span class="eyes">
-                <img src="https://static.epetbar.com/static_web/wap/dist/images/background/view-black.png" alt="">
-              </span>
-              <i>9274</i>
-              <span>丨</span>
-              <i>01:29</i>
-            </div>
-          </div>
-        </div>
-      </div>
+      <CustomTite v-if="mainData.datas" :vlaueData="mainData.datas[49]"/>
+      <Fashion v-if="mainData.datas" :vlaueData="mainData.datas[50]"/>
       <div>
         <PageLine/>
       </div>
-      <div>
-        <div class="banner_item">
-          <a href="">
-            <img src="https://img2.epetbar.com/nowater/2017-12/13/11/be84f01e893b0e631d8512566eb79117.jpg@!water" alt="">
-          </a>
-        </div>
-      </div>
-
+      <BannerItem v-if="mainData.datas" :vlaueData="mainData.datas[52]"/>
       </div>
     <div class="footer">
         <div class="footerTop">
@@ -628,33 +302,54 @@ import BScroll from 'better-scroll'
 import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.min.css'
 import PageLine from '../../components/PageLine/PageLine.vue'
+import imageCarousel from '../../components/imageCarousel/imageCarousel.vue'
+import BannerItem from '../../components/BannerItem/BannerItem.vue'
+import CustomTite from '../../components/CustomTite/CustomTite.vue'
+import Fashion from '../../components/Fashion/Fashion.vue'
+import {mapState} from 'vuex'
 export default {
   mounted(){
+    this.$store.dispatch('getMainData')
     new BScroll('.proceedVessel',{
       scrollX: true
     })
-    new Swiper('.bannerSwiper',{
-      autoplay:true,
-      loop : true,
-      pagination: { // 指定分页器容器
-        el: '.swiper-pagination'
-      }
-    })
-    new Swiper('.small-swiper-container',{
-      autoplay:true,
-      loop : true,
-      pagination: { // 指定分页器容器
-        el: '.swiper-pagination'
-      }
-    })
+//    new Swiper('.bannerSwiper',{
+//      autoplay:true,
+//      loop : true,
+//      pagination: { // 指定分页器容器
+//        el: '.swiper-pagination'
+//      }
+//    })
+
     new Swiper('.surpriseSwiper',{
       slidesPerView : 3.5,
       spaceBetween : 10,
     })
   },
+  computed:{
+    ...mapState(['mainData'])
+  },
   components:{
-    PageLine
+    PageLine,
+    imageCarousel,
+    BannerItem,
+    CustomTite,
+    Fashion
+  },
+  watch:{
+    mainData(){
+      this.$nextTick(()=>{
+        new Swiper('.small-swiper-container',{
+          autoplay:true,
+          loop : true,
+          pagination: { // 指定分页器容器
+            el: '.swiper-pagination'
+          }
+        })
+      })
+    }
   }
+
 }
 </script>
 
@@ -773,15 +468,6 @@ export default {
     margin-top 86px
     overflow hidden
     div
-      .swiper-container
-        width 100%
-        height 100%
-        margin 0 auto
-        position relative
-        overflow hidden
-        z-index 1
-        img
-          width 100%
       .columnnavdiv
          ul
           clearFix()
