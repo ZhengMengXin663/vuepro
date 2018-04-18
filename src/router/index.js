@@ -4,6 +4,8 @@ import Classify from '../pages/Classify/Classify.vue'
 import HomePage from '../pages/HomePage/HomePage.vue'
 import Myself from '../pages/Myself/Myself.vue'
 import ShoppingCart from '../pages/ShoppingCart/ShoppingCart.vue'
+import ClassifyList from '../pages/Classify/ClassifyList/ClassifyList.vue'
+import Brand from '../pages/Classify/Brand/Brand.vue'
 
 Vue.use(VueRouter)
 
@@ -15,7 +17,21 @@ export default new VueRouter({
     },
     {
       path:'/classify', //分类
-      component:Classify
+      component:Classify,
+      children:[
+        {
+          path:'/classify/classifyList',
+          component:ClassifyList
+        },
+        {
+          path:'/classify/brand',
+          component:Brand
+        },
+        {
+          path:'',
+          redirect:'/classify/classifyList'
+        }
+      ]
     },
     {
       path:'/shoppingcart', //购物车

@@ -6,7 +6,7 @@
       </span>
       <span>主页</span>
     </a>
-    <a href="javascript:;" class="guide_item" :class="{on:'/classify'===$route.path}" @click="goto('/classify')">
+    <a href="javascript:;" class="guide_item" :class="{on:'/classify'===$route.path.substr(0,9)}" @click="goto('/classify')">
       <span class="item_icon">
         <i class="iconfont icon-icon04"></i>
       </span>

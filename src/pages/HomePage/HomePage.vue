@@ -1,7 +1,14 @@
 <template>
   <div>
-    <header class="headerbox">
-
+    <header class="headerbox" id="header">
+     <div class="xiazaiApp" v-if="ishow">
+       <span class="clsoebtn" @click="cheangeShow">
+         <img src="//static.epetbar.com/static_wap/lib/common_images/closebtn_03.png" alt="">
+       </span>
+       <a href="">
+         <img src="https://img2.epetbar.com/nowater/2017-12/13/18/c63b6e6cf483cbb61196f658920a9d6e.jpg@!water                              " alt="">
+       </a>
+     </div>
      <div class="headerMain">
        <div class="headerTop">
        <div class="leftInfo">
@@ -38,7 +45,7 @@
        </div>
      </div>
     </header>
-    <div class="main">
+    <div class="main" id="main">
       <imageCarousel v-if="maincarousel.data" :value="maincarousel.data[1]"/>
       <div v-if="mainData.datas">
         <div class="columnnavdiv">
@@ -150,11 +157,11 @@
       <div>
         <PageLine/>
       </div>
+
       <div>
         <CustomTite v-if="mainData.datas" :vlaueData="mainData.datas[14]"/>
       </div>
-
-        <BannerItem v-if="mainData.datas" :vlaueData="mainData.datas[15]"/>
+      <BannerItem v-if="mainData.datas" :vlaueData="mainData.datas[15]"/>
       <div>
         <PageLine/>
       </div>
@@ -262,7 +269,7 @@ import {mapState} from 'vuex'
 export default {
   data(){
     return{
-      ishow:show,
+      ishow:true,
       dataIndex:0
     }
   },
@@ -302,8 +309,23 @@ export default {
           spaceBetween : 10,
         })
       })
+    },
+    ishow(){
+      this.$nextTick(()=>{
+        let widthH = document.getElementById('header').clientHeight
+        console.log(widthH)
+        let main=document.getElementById('main')
+        main.style.marginTop=widthH+'px'
+
+      })
     }
 
+  },
+  methods:{
+    cheangeShow(){
+      this.ishow = !this.ishow
+
+    }
   }
 
 }
@@ -420,8 +442,24 @@ export default {
                     left -10%
                     width 120%
                     height 2px
+    .xiazaiApp
+      width 100%
+      position relative
+      .clsoebtn
+        top 35%
+        left 3%
+        position absolute
+        width 5%
+        img
+          width 100%
+
+      img
+        width 100%
+
+
+
   .main
-    margin-top 86px
+    margin-top 143px
     overflow hidden
     div
       .columnnavdiv

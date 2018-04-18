@@ -1,4 +1,6 @@
 export default {
   mainData:{},
-  maincarousel:{}
+  maincarousel:{},
+  classifyLists:{},
+  brandlist:{}
 }
