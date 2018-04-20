@@ -6,6 +6,7 @@ import Myself from '../pages/Myself/Myself.vue'
 import ShoppingCart from '../pages/ShoppingCart/ShoppingCart.vue'
 import ClassifyList from '../pages/Classify/ClassifyList/ClassifyList.vue'
 import Brand from '../pages/Classify/Brand/Brand.vue'
+import AllBrand from '../pages/AllBrand/AllBrand.vue'
 
 Vue.use(VueRouter)
 
@@ -13,7 +14,10 @@ export default new VueRouter({
   routes:[
     {
       path:'/homepage', //主页
-      component:HomePage
+      component:HomePage,
+      meta: {
+        showFooter: true
+      }
     },
     {
       path:'/classify', //分类
@@ -21,29 +25,51 @@ export default new VueRouter({
       children:[
         {
           path:'/classify/classifyList',
-          component:ClassifyList
+          component:ClassifyList,
+          meta: {
+            showFooter: true
+          }
         },
         {
           path:'/classify/brand',
-          component:Brand
+          component:Brand,
+          meta: {
+            showFooter: true
+          }
         },
         {
           path:'',
           redirect:'/classify/classifyList'
         }
-      ]
+      ],
+      meta: {
+        showFooter: true
+      }
     },
     {
       path:'/shoppingcart', //购物车
-      component:ShoppingCart
+      component:ShoppingCart,
+      meta: {
+        showFooter: false
+      }
     },
     {
       path:'/myself', //我的E充页
-      component:Myself
+      component:Myself,
+      meta: {
+        showFooter: false
+      }
     },
     {
       path:'/',
       redirect:'/homepage'
+    },
+    {
+      path:'/allbrand',
+      component:AllBrand,
+      meta: {
+        showFooter: false
+      }
     }
   ]
 })

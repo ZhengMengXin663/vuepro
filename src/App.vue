@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="abc">
     <router-view/>
-    <footNavigation/>
+    <footNavigation v-if="$route.meta.showFooter"/>
   </div>
 </template>
 
@@ -16,4 +16,6 @@ export default {
 <style lang="stylus" rel="stylesheet/stylus">
   body
     background #fff
+    .abc
+      height 100%
 </style>

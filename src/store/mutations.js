@@ -1,4 +1,4 @@
-import {RECEIVE_MAIN,RECEIVE_MAIN_CAROUSEL,RECEIVE_CLASSIFYLIST,RECEIVE_BRANDLIST} from './mutations-type'
+import {RECEIVE_MAIN,RECEIVE_MAIN_CAROUSEL,RECEIVE_CLASSIFYLIST,RECEIVE_BRANDLIST,RECEIVE_ALLBRAND} from './mutations-type'
 export default {
   [RECEIVE_MAIN] (state,{MainData}) {
     state.mainData = MainData
@@ -11,5 +11,8 @@ export default {
   },
   [RECEIVE_BRANDLIST](state,{lists}){
     state.brandlist = lists
+  },
+  [RECEIVE_ALLBRAND](state,{allBrand}){
+    state.allBrand = allBrand
   }
 }

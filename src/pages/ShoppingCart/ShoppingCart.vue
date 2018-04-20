@@ -1,9 +1,16 @@
 <template>
-  <div>ShoppingCart</div>
+  <div>
+    <HeaderNav titleName="购物车"/>
+  </div>
 </template>
 
 <script>
-    export default {}
+import HeaderNav from '../../components/HeaderNav/HeaderNav.vue'
+export default {
+  components:{
+    HeaderNav
+  }
+}
 </script>
 
 

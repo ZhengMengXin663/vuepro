@@ -17,7 +17,7 @@
         </ul>
       </div>
    </div>
-   <a href="" class="all">全部</a>
+   <a href="javascript:;" class="all" @click="$router.push('/allbrand')">全部</a>
    </div>
  </div>
 </template>

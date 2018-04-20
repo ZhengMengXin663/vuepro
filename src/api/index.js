@@ -6,3 +6,4 @@ export const reqCarousel =()=> ajax('./api/carousel')
 
 export const reqClassifyList =()=>ajax('./api/classify')
 export const reqBrandList =()=>ajax('./api/brand')
+export const reqAllBrand =()=>ajax('./api/allbrand')
